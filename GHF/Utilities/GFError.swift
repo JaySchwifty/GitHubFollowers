@@ -1,8 +1,8 @@
 //
-//  ErrorMessage.swift
+//  GFError.swift
 //  GHF
 //
-//  Created by Jaron Grigsby on 2/19/23.
+//  Created by Jaron Grigsby on 2/26/23.
 //
 
 import Foundation

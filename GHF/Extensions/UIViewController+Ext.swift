@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 fileprivate var containerView: UIView! // nothing can access this unless it's within this folder i.e. the extd VC
 
@@ -56,5 +57,12 @@ extension UIViewController  {
       let emptyStateView = GFEmptyStateView(message: message)
       emptyStateView.frame = view.bounds
       view.addSubview(emptyStateView)
+   }
+   
+   
+   func presentSafariVC(with url: URL) {
+      let safariVC = SFSafariViewController(url: url)
+      safariVC.preferredControlTintColor = .systemGreen
+      present(safariVC, animated: true)
    }
 }
