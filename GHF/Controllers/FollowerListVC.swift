@@ -188,16 +188,12 @@ extension FollowerListVC: UICollectionViewDelegate {
    
    
    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      //      let activeArray = isSearching ? filteredFollowers : followers
-      //      let follower = activeArray[indexPath.item]
-      
       let follower = (isSearching ? filteredFollowers : followers)[indexPath.item]
-      //      let f2 = dataSource.itemIdentifier(for:indexPath)
       
       let destVC        = UserInfoVC()
       destVC.username   = follower.login
       destVC.delegate   = self
-      //      destVC.username = f2?.login
+      
       let navController = UINavigationController(rootViewController: destVC)
       present(navController, animated: true)
    }
@@ -205,6 +201,7 @@ extension FollowerListVC: UICollectionViewDelegate {
 
 
 extension FollowerListVC: UISearchResultsUpdating {
+   
    func updateSearchResults(for searchController: UISearchController) {
       guard let filter = searchController.searchBar.text, !filter.isEmpty else {
          filteredFollowers.removeAll()

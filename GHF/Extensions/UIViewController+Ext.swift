@@ -8,7 +8,6 @@
 import UIKit
 import SafariServices
 
-//fileprivate var containerView: UIView! // nothing can access this unless it's within this folder i.e. the extd VC
 extension UIViewController  {
    
    func presentGFAlertOnMainThread(title: String, message: String, buttonTitle: String) {

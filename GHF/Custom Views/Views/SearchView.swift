@@ -17,7 +17,7 @@ class SearchView: UIView {
    }()
    
    let usernameTF          = GFTextField()
-   let getFollowersButton  = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+   let getFollowersButton  = GFButton(color: .systemGreen, title: "Get Followers", systemImageName: "person.3")
    
    
    override init(frame: CGRect) {

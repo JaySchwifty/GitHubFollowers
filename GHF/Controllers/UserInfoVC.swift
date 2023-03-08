@@ -21,7 +21,7 @@ class UserInfoVC: GFDataLoadingVC {
    var itemViews: [UIView]    = []
    let dateLbl                = GFBodyLabel(textAlignment: .center)
    
-   var username: String! // forced unrwapped because im passing data that will use this and be handled if nil or not.
+   var username: String!
    weak var delegate: UserInfoVCDelegate!
    
    override func viewDidLoad() {
@@ -70,10 +70,7 @@ class UserInfoVC: GFDataLoadingVC {
    
    func configUIElements(with user: User) {
       let repoItemVC       = GFRepoItemVC(user: user, delegate: self)
-//      repoItemVC.delegate = self NO LONGER NEEDED DUE TO THE LINE ABOVE !!!!
-      
       let followerItemVC   = GFFollowerItemVC(user: user, delegate: self)
-//      self.add(childVC: GFRepoItemVC(user: user, delegate: self), to: self.itemView1) THIS IS ANOTHER WAY OF DOING IT
       
       self.add(childVC: repoItemVC, to: self.itemView1)
       self.add(childVC: followerItemVC, to: self.itemView2)

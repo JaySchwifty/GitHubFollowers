@@ -14,7 +14,7 @@ protocol GFRepoItemVCDelegate: AnyObject {
 class GFRepoItemVC: GFItemInfoVC {
    
    weak var delegate: GFRepoItemVCDelegate!
-   // This needs to be weak to avoid retain cycles to the
+   
    
    init(user: User, delegate: GFRepoItemVCDelegate) {
       super.init(user: user)
@@ -36,7 +36,7 @@ class GFRepoItemVC: GFItemInfoVC {
    private func configItems() {
       itemInfoView1.set(itemInfoType: .repos, withCount: user.publicRepos)
       itemInfoView2.set(itemInfoType: .gits, withCount: user.publicGists)
-      actionButton.set(backgroundColor: .systemPurple, title: "GitHub Profile")
+      actionButton.set(color: .systemPurple, title: "GitHub Profile", systemImageName: "person")
    }
    
    
