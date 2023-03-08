@@ -29,13 +29,11 @@ class GFItemInfoView: UIView {
    
    
    private func config() {
-      addSubview(symbolIV)
-      addSubview(titleLbl)
-      addSubview(countLbl)
+      addSubviews(symbolIV, titleLbl, countLbl)
       
+      symbolIV.tintColor      = .label
+      symbolIV.contentMode    = .scaleAspectFill
       symbolIV.translatesAutoresizingMaskIntoConstraints = false
-      symbolIV.contentMode = .scaleAspectFill
-      symbolIV.tintColor = .label
       
       NSLayoutConstraint.activate([
          symbolIV.topAnchor.constraint(equalTo: topAnchor),
@@ -57,20 +55,22 @@ class GFItemInfoView: UIView {
    
    
    func set(itemInfoType: ItemInfoType, withCount count: Int) {
-      
       switch itemInfoType {
       case .repos:
-         symbolIV.image = UIImage(systemName: SFSymbols.repos)
-         titleLbl.text = "Public Repos"
+         symbolIV.image    = SFSymbols.repos
+         titleLbl.text     = "Public Repos"
+         
       case .gits:
-         symbolIV.image = UIImage(systemName: SFSymbols.gists)
-         titleLbl.text = "Public Gists"
+         symbolIV.image    = SFSymbols.gists
+         titleLbl.text     = "Public Gists"
+         
       case .followers:
-         symbolIV.image = UIImage(systemName: SFSymbols.followers)
-         titleLbl.text = "Followers"
+         symbolIV.image    = SFSymbols.followers
+         titleLbl.text     = "Followers"
+         
       case .following:
-         symbolIV.image = UIImage(systemName: SFSymbols.following)
-         titleLbl.text = "Following"
+         symbolIV.image    = SFSymbols.following
+         titleLbl.text     = "Following"
       }
       
       countLbl.text = String(count)

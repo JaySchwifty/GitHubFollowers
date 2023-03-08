@@ -10,14 +10,15 @@ import UIKit
 class SearchView: UIView {
    
    let logoIV: UIImageView = {
-      let image = UIImageView()
+      let image   = UIImageView()
+      image.image = Images.ghLogo
       image.translatesAutoresizingMaskIntoConstraints = false
-      image.image = UIImage(named: "gh-logo")
       return image
    }()
    
-   let usernameTF = GFTextField()
-   let getFollowersButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+   let usernameTF          = GFTextField()
+   let getFollowersButton  = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+   
    
    override init(frame: CGRect) {
       super.init(frame: frame)
@@ -32,14 +33,13 @@ class SearchView: UIView {
    
    private func config() {
       backgroundColor = .systemBackground
-      addSubview(logoIV)
-      addSubview(usernameTF)
-      addSubview(getFollowersButton)
-      
+      addSubviews(logoIV, usernameTF, getFollowersButton)
       usernameTF.text = "Sallen0400"
       
+      let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+      
       NSLayoutConstraint.activate([
-         logoIV.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 80),
+         logoIV.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant),
          logoIV.centerXAnchor.constraint(equalTo: centerXAnchor),
          logoIV.heightAnchor.constraint(equalToConstant: 200),
          logoIV.widthAnchor.constraint(equalToConstant: 200),

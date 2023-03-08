@@ -9,22 +9,20 @@ import UIKit
 
 class GFItemInfoVC: UIViewController {
    
-   let stackView = UIStackView()
+   let stackView     = UIStackView()
    let itemInfoView1 = GFItemInfoView()
    let itemInfoView2 = GFItemInfoView()
-   let actionButton = GFButton()
+   let actionButton  = GFButton()
    
    var user: User!
-   weak var delegate: UserInfoVCDelegate!
-   // This needs to be weak to avoid retain cycles to the 
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       configBackgroundView()
-       layoutUI()
-       configStackView()
-       configActionButton()
-    }
+   
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      configBackgroundView()
+      layoutUI()
+      configStackView()
+      configActionButton()
+   }
    
    
    init(user: User) {
@@ -39,14 +37,14 @@ class GFItemInfoVC: UIViewController {
    
    
    private func configBackgroundView() {
-      view.layer.cornerRadius = 18
-      view.backgroundColor = .secondarySystemBackground
+      view.layer.cornerRadius    = 18
+      view.backgroundColor       = .secondarySystemBackground
    }
    
    
    private func configStackView() {
-      stackView.axis = .horizontal
-      stackView.distribution = .equalSpacing
+      stackView.axis          = .horizontal
+      stackView.distribution  = .equalSpacing
       
       stackView.addArrangedSubview(itemInfoView1)
       stackView.addArrangedSubview(itemInfoView2)
@@ -62,8 +60,7 @@ class GFItemInfoVC: UIViewController {
    
    
    private func layoutUI() {
-      view.addSubview(stackView)
-      view.addSubview(actionButton)
+      view.addSubviews(stackView, actionButton)
       
       stackView.translatesAutoresizingMaskIntoConstraints = false
       let padding: CGFloat = 20

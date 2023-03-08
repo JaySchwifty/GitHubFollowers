@@ -1,18 +1,19 @@
 //
-//  GFContainerView.swift
+//  GFAlertContainerView.swift
 //  GHF
 //
-//  Created by Jaron Grigsby on 2/15/23.
+//  Created by Jaron Grigsby on 3/5/23.
 //
 
 import UIKit
 
-class GFContainerView: UIView {
+class GFAlertContainerView: UIView {
    
-   let titleLbl = GFTitleLabel(textAlignment: .center, fontSize: 20)
-   let messageLbl = GFBodyLabel(textAlignment: .center)
-   let actionButton = GFButton(backgroundColor: .systemPink, title: "Ok")
+   let titleLbl         = GFTitleLabel(textAlignment: .center, fontSize: 20)
+   let messageLbl       = GFBodyLabel(textAlignment: .center)
+   let actionButton     = GFButton(backgroundColor: .systemPink, title: "Ok")
    let padding: CGFloat = 20
+   
    
    override init(frame: CGRect) {
       super.init(frame: frame)
@@ -26,15 +27,13 @@ class GFContainerView: UIView {
    
    
    private func config() {
-      layer.cornerRadius = 16
-      layer.borderWidth = 2
-      layer.borderColor = UIColor.white.cgColor
-      backgroundColor = .systemBackground
+      layer.cornerRadius   = 16
+      layer.borderWidth    = 2
+      layer.borderColor    = UIColor.white.cgColor
+      backgroundColor      = .systemBackground
       translatesAutoresizingMaskIntoConstraints = false
       
-      addSubview(titleLbl)
-      addSubview(messageLbl)
-      addSubview(actionButton)
+      addSubviews(titleLbl, messageLbl, actionButton)
       
       NSLayoutConstraint.activate([
          titleLbl.topAnchor.constraint(equalTo: topAnchor, constant: padding),

@@ -15,6 +15,7 @@ class SearchVC: UIViewController {
    
    override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
+//      searchView.usernameTF.text = ""
       navigationController?.setNavigationBarHidden(true, animated: true)
    }
    
@@ -29,24 +30,24 @@ class SearchVC: UIViewController {
    
    
    func crateDismissKeyboardTapGesture() {
-      let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+      let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
       view.addGestureRecognizer(tap)
    }
    
    
    @objc func pushFollowerListVC() {
-      
       guard isUsernameEntered else {
          presentGFAlertOnMainThread(title: "Empty username", message: "Please enter a username. We need to know who to look for 😄", buttonTitle: "Ok")
          return
       }
       
-      let followerListVC = FollowerListVC()
-      followerListVC.username = searchView.usernameTF.text
-      followerListVC.title = searchView.usernameTF.text
+      searchView.usernameTF.resignFirstResponder()
+      
+      let followerListVC = FollowerListVC(username: searchView.usernameTF.text!)
       navigationController?.pushViewController(followerListVC, animated: true)
    }
 }
+
 
 extension SearchVC: UITextFieldDelegate {
    

@@ -9,16 +9,14 @@ import UIKit
 
 class FollowerCell: UICollectionViewCell {
    
-   static let reuseID = "FollowerCell"
-   let avatarIV = GFAvatarImageView(frame: .zero)
-   let usernameLbl = GFTitleLabel(textAlignment: .center, fontSize: 16)
-   let padding: CGFloat = 8
+   static let reuseID   = "FollowerCell"
+   let avatarIV         = GFAvatarImageView(frame: .zero)
+   let usernameLbl      = GFTitleLabel(textAlignment: .center, fontSize: 16)
    
    override init(frame: CGRect) {
       super.init(frame: frame)
       config()
    }
-   
    
    required init?(coder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
@@ -27,13 +25,13 @@ class FollowerCell: UICollectionViewCell {
    
    func set(follower: Follower) {
       usernameLbl.text = follower.login
-      avatarIV.downloadImage(from: follower.avatarUrl)
+      avatarIV.downloadImage(fromURL: follower.avatarUrl)
    }
    
    
    private func config() {
-      addSubview(avatarIV)
-      addSubview(usernameLbl)
+      addSubviews(avatarIV, usernameLbl)
+      let padding: CGFloat = 8
       
       NSLayoutConstraint.activate([
          avatarIV.topAnchor.constraint(equalTo: topAnchor, constant: padding),

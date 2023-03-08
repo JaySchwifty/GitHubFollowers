@@ -9,12 +9,12 @@ import UIKit
 
 class GFUserInfoHeaderVC: UIViewController {
    
-   let avatarIV = GFAvatarImageView(frame: .zero)
-   let usernameLbl = GFTitleLabel(textAlignment: .left, fontSize: 34)
-   let nameLbl = GFSecondaryTitleLabel(fontSize: 18)
-   let locationIV = UIImageView()
-   let locationLbl = GFSecondaryTitleLabel(fontSize: 18)
-   let bioLbl = GFBodyLabel(textAlignment: .left)
+   let avatarIV      = GFAvatarImageView(frame: .zero)
+   let usernameLbl   = GFTitleLabel(textAlignment: .left, fontSize: 34)
+   let nameLbl       = GFSecondaryTitleLabel(fontSize: 18)
+   let locationIV    = UIImageView()
+   let locationLbl   = GFSecondaryTitleLabel(fontSize: 18)
+   let bioLbl        = GFBodyLabel(textAlignment: .left)
    
    var user: User!
    
@@ -23,7 +23,6 @@ class GFUserInfoHeaderVC: UIViewController {
       self.user = user
    }
    
-   
    required init?(coder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
    }
@@ -31,39 +30,30 @@ class GFUserInfoHeaderVC: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      addSubviews()
+      view.addSubviews(avatarIV, usernameLbl, nameLbl, locationIV, locationLbl, bioLbl)
       layoutUI()
       configUIElements()
    }
    
    
    func configUIElements() {
-      avatarIV.downloadImage(from: user.avatarUrl)
-      usernameLbl.text = user.login
-      nameLbl.text = user.name ?? ""
-      locationLbl.text = user.location ?? "No Location"
-      bioLbl.text = user.bio ?? "No bio"
-      bioLbl.numberOfLines = 3
+      avatarIV.downloadImage(fromURL: user.avatarUrl)
+      usernameLbl.text        = user.login
+      nameLbl.text            = user.name ?? ""
+      locationLbl.text        = user.location ?? "No Location"
+      bioLbl.text             = user.bio ?? "No bio"
+      bioLbl.numberOfLines    = 3
       
-      locationIV.image = UIImage(systemName: SFSymbols.location)
-      locationIV.tintColor = .secondaryLabel
+      locationIV.image        = SFSymbols.location
+      locationIV.tintColor    = .secondaryLabel
    }
-   
-   
-   func addSubviews() {
-      view.addSubview(avatarIV)
-      view.addSubview(usernameLbl)
-      view.addSubview(nameLbl)
-      view.addSubview(locationIV)
-      view.addSubview(locationLbl)
-      view.addSubview(bioLbl)
-   }
-   
+
    
    func layoutUI() {
-      let padding: CGFloat = 20
-      let textImagePadding: CGFloat = 12
       locationIV.translatesAutoresizingMaskIntoConstraints = false
+      
+      let padding: CGFloat             = 20
+      let textImagePadding: CGFloat    = 12
       
       NSLayoutConstraint.activate([
          avatarIV.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
@@ -94,7 +84,7 @@ class GFUserInfoHeaderVC: UIViewController {
          bioLbl.topAnchor.constraint(equalTo: avatarIV.bottomAnchor, constant: textImagePadding),
          bioLbl.leadingAnchor.constraint(equalTo: avatarIV.leadingAnchor),
          bioLbl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-         bioLbl.heightAnchor.constraint(equalToConstant: 60)
+         bioLbl.heightAnchor.constraint(equalToConstant: 90)
       ])
    }
 }
