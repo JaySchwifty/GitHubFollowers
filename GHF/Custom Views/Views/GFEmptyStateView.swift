@@ -59,7 +59,7 @@ class GFEmptyStateView: UIView {
       let logoBottomConstant: CGFloat  = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 80 : 40
       
       NSLayoutConstraint.activate([
-         logoIV.bottomAnchor.constraint(equalTo: bottomAnchor, constant: logoBottomConstant),
+         logoIV.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: logoBottomConstant),
          logoIV.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.3),
          logoIV.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1.3),
          logoIV.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 170),
