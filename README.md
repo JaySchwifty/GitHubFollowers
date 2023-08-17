@@ -3,6 +3,9 @@ Sean Allens take home project
 
 In this project I covered:
 
+
+
+
   • Programmatic UI
   • Delegats & Protocols
   • Networking & Error Handling
